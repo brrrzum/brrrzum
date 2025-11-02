@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Floating Diorama Viewer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>Floating Diorama Viewer</h1>
+      <p>Load a floating diorama image and orbit around it like a miniature 3D scene.</p>
+    </header>
+
+    <main>
+      <section class="controls" aria-label="Viewer controls">
+        <label class="file-upload">
+          <span class="file-label">Choose a diorama image</span>
+          <input id="image-input" type="file" accept="image/*" />
+        </label>
+        <button id="reset-camera" type="button">Reset view</button>
+      </section>
+
+      <section class="viewer" aria-label="Interactive diorama">
+        <div id="scene-container" class="scene-container" role="application" aria-describedby="interaction-help"></div>
+        <p id="interaction-help" class="interaction-help">
+          Click and drag to orbit • Scroll to zoom • Right-click to pan
+        </p>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <p>
+        Tip: Use square or transparent PNG images to emphasize the floating effect. The
+        viewer adds subtle lighting and depth to enhance the miniature look.
+      </p>
+    </footer>
+
+    <script type="module" src="src/app.js"></script>
+  </body>
+</html>

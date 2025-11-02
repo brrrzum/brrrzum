@@ -1,0 +1,157 @@
+:root {
+  color-scheme: dark light;
+  --bg: radial-gradient(circle at 20% 20%, #232946, #0b1026 75%);
+  --panel: rgba(18, 24, 48, 0.65);
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #f2f4ff;
+  --accent: #ef4565;
+  --accent-soft: rgba(239, 69, 101, 0.15);
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  color: var(--text);
+}
+
+header,
+main,
+footer {
+  width: min(960px, 90vw);
+  margin: 0 auto;
+}
+
+.app-header {
+  padding: 2.5rem 0 1.5rem;
+  text-align: center;
+}
+
+.app-header h1 {
+  margin-bottom: 0.5rem;
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  letter-spacing: 0.03em;
+}
+
+.app-header p {
+  margin: 0;
+  opacity: 0.82;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  padding-bottom: 2rem;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  backdrop-filter: blur(18px);
+}
+
+.file-upload {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+.file-upload:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 30px rgba(239, 69, 101, 0.25);
+}
+
+.file-upload:active {
+  transform: translateY(1px) scale(0.99);
+}
+
+.file-upload input[type="file"] {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.file-label {
+  pointer-events: none;
+}
+
+.controls button {
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 150ms ease, background 150ms ease;
+}
+
+.controls button:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.viewer {
+  position: relative;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.35));
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+}
+
+.scene-container {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  min-height: 420px;
+}
+
+.interaction-help {
+  margin: 0;
+  padding: 0.75rem 1.25rem 1.5rem;
+  opacity: 0.7;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.app-footer {
+  padding: 1.5rem 0 3rem;
+  text-align: center;
+  opacity: 0.65;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 640px) {
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .controls button {
+    width: 100%;
+  }
+}
